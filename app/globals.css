@@ -6,6 +6,7 @@ html,
 body,
 :root {
   height: 100%;
+  color: #5e5e81;
 }
 
 @layer base {
