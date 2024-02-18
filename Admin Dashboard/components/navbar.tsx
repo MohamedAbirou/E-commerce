@@ -3,6 +3,7 @@ import { UserButton } from "@clerk/nextjs";
 import { MainNav } from "./main-nav";
 import { StoreSwitcher } from "./store-switcher";
 import { Store } from "@prisma/client";
+import { ThemeToggle } from "./theme-toggle";
 
 interface NavbarProps {
   stores: Store[];
@@ -15,6 +16,7 @@ export const Navbar = ({ stores }: NavbarProps) => {
         <StoreSwitcher items={stores} />
         <MainNav className="mx-6" />
         <div className="ml-auto flex items-center space-x-4">
+          <ThemeToggle />
           <UserButton afterSignOutUrl="/" />
         </div>
       </div>

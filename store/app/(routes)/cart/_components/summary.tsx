@@ -20,9 +20,9 @@ export const Summary = () => {
     }
 
     if (searchParams.get("canceled")) {
-      toast.error("Something went wrong!");
+      toast.error("Something went wrong.");
     }
-  }, [removeAll, searchParams]);
+  }, [searchParams, removeAll]);
 
   const totalPrice = items.reduce((total, item) => {
     return total + Number(item.price);
@@ -48,7 +48,11 @@ export const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button onClick={onCheckout} className="w-full mt-6">
+      <Button
+        disabled={items.length === 0}
+        onClick={onCheckout}
+        className="w-full mt-6"
+      >
         Checkout
       </Button>
     </div>
